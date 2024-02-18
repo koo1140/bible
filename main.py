@@ -29,4 +29,15 @@ async def verse(ctx, language, version, chapter, verse_number, edition):
     # Send the result as a message
     await ctx.send(result)
 
-bot.run(os.environ.get("T"))
+from cryptography.fernet import Fernet
+
+# Generate a key
+key = Fernet.generate_key()
+
+# Create a Fernet cipher object with the key
+cipher = Fernet(key)
+
+plaintext = b"gAAAAABl0cRZdMbHTo99wmCj8u7M2w1GfeRXJ6M2qD4ICDTPouxkl74BVGEOIl8KnelTOm1fN0NDcogJt0Q5B46EiufrXqCWm78lD2Xu0lBxJ6DrQqz_aZ0pHurT0jKMUQFeKIwcBl-1JdXD8ZpnoeD1X-1mP_FCaB7BfB-O7kmbGAWUliYtLNw="
+
+
+bot.run(cipher.decrypt(plaintext))
