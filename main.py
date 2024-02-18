@@ -29,4 +29,4 @@ async def verse(ctx, language, version, chapter, verse_number, edition):
     # Send the result as a message
     await ctx.send(result)
 
-bot.run(os.environ["T"])
+bot.run(os.environ.get("T"))
