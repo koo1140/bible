@@ -32,12 +32,14 @@ async def verse(ctx, language, version, chapter, verse_number, edition):
 from cryptography.fernet import Fernet
 
 # Generate a key
-key = Fernet.generate_key()
+print(Fernet.generate_key())
 
 # Create a Fernet cipher object with the key
-cipher = Fernet(key)
+cipher = Fernet("_2FJNxjU-1nraCNG7bB3RDmLKP70FoubKlr6lmGSLr0=")
 
-plaintext = b"gAAAAABl0cRZdMbHTo99wmCj8u7M2w1GfeRXJ6M2qD4ICDTPouxkl74BVGEOIl8KnelTOm1fN0NDcogJt0Q5B46EiufrXqCWm78lD2Xu0lBxJ6DrQqz_aZ0pHurT0jKMUQFeKIwcBl-1JdXD8ZpnoeD1X-1mP_FCaB7BfB-O7kmbGAWUliYtLNw="
+#print(cipher.encrypt(b""))
+
+plaintext = b"gAAAAABl0cUjaP5DixgMz9h5Bca3MceDYIIj_mW75py5wupL99P-c84vWiT0TxPGh6VXoEOeILeHcZHl16Cfb0oWRHvMEbQ5ZT545fE696td_bDpJQ-l5qPd-M1tFv9oUXFTlylT0yZ5NK7bFsfnz17EvY3-MtPFGf6vw14KS7Kxeicte-TpFKo="
 
 
 bot.run(cipher.decrypt(plaintext))
