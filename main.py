@@ -21,13 +21,12 @@ def query(l, n, c, v, e):
 #print(query("en", "kjv", "1", "1", "1"))
 
 @bot.command(name="verse", help="Gives a bible verse.")
-async def verse(ctx, *, text="nothing"):
-  # Create an embed
-  global message_count
-  message_count += 1
-  async with ctx.typing():
-    result = ""
-  # Send the embed as a message
-  await ctx.send(result)
+async def verse(ctx, language, version, chapter, verse_number, edition):
+    async with ctx.typing():
+        # Call the query function with provided arguments
+        result = query(language, version, chapter, verse_number, edition)
+        
+    # Send the result as a message
+    await ctx.send(result)
 
 bot.run(os.environ["T"])
