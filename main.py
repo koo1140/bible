@@ -30,4 +30,4 @@ async def verse(ctx, *, text="nothing"):
   # Send the embed as a message
   await ctx.send(result)
 
-bot.run(os.environ.get("t"))
+bot.run(os.environ["T"])
